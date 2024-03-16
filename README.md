@@ -8,7 +8,7 @@ curl -O https://raw.githubusercontent.com/Saliente/CaptivePortal-isandano/main/c
 ```
 Make the shell file executable
 ```
-chmod +x captiveportal.sh
+dos2unix ./captiveportal.sh
 ```
 Now just execute the file 
 ```
