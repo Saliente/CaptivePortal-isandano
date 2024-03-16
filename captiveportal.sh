@@ -51,7 +51,7 @@ services:
     image: isandano/captivephp:t1
     ports:
       - "8080:443"
-    command: /bin/bash -c "service apache2 start && service mysql start && tail -f /var/log/mysql/error.log /var/log/apache2/error.log "
+    command: /bin/bash -c "service mysql start && service apache2 start && tail -f /var/log/mysql/error.log /var/log/apache2/error.log "
 EOF
 
 # start docker compose
