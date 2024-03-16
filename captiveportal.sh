@@ -1,5 +1,7 @@
 #!/bin/bash
 # Remove old docker files 
+
+sudo su
 sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
@@ -17,11 +19,11 @@ sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 sudo systemctl start docker
 sudo systemctl enable docker
 
-#firewall-cmd --zone=public --add-port=8080/tcp --permanent
-#firewall-cmd --reload
+sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+sudo firewall-cmd --reload
 
 # create systemd file to autostart
-cat << 'EOF'>> /etc/systemd/system/captiveportal.service
+sudo cat << 'EOF'>> /etc/systemd/system/captiveportal.service
 
 [Unit]
 Description=Docker Compose Application Service
@@ -41,13 +43,13 @@ StartLimitBurst=3
 WantedBy=multi-user.target
 EOF
 # enable startup 
-systemctl enable captiveportal.service
+sudo systemctl enable captiveportal.service
 
 # create a folder to save the file
-mkdir /captive_portal
+sudo mkdir /captive_portal
 
 # create docker compose file 
-cat << 'EOF'>> /captive_portal/docker-compose.yaml
+sudo cat << 'EOF'>> /captive_portal/docker-compose.yaml
 version: "3"
 services:
 
@@ -59,4 +61,4 @@ services:
 EOF
 
 # start docker compose 
-docker compose -f /captive_portal/docker-compose.yaml up -d
+sudo docker compose -f /captive_portal/docker-compose.yaml up -d
