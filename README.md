@@ -12,5 +12,5 @@ chmod +x captiveportal.sh
 ```
 Now just execute the file 
 ```
-./captiveportal.sh
+sh ./captiveportal.sh
 ```
