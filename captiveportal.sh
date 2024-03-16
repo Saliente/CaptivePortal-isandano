@@ -38,8 +38,6 @@ EOF
 #enable startup
 sudo systemctl enable captiveportal.service
 
-# enable startup
-sudo systemctl enable captiveportal.service
 
 # create a folder to save the file
 sudo mkdir /captive_portal
